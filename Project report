@@ -1,0 +1,120 @@
+Week Four Final Deliverable
+
+Data Visualization Associate Early Remote Internship
+
+Team:  SLU 0202 DVA Team 6
+
+1. Final Presentation Deck.
+
+2. Recorded Team Presentation.
+
+3. Final Report and Dashboard.
+
+Final Presentation Deck
+
+The complete project presentation, including data integration workflow, SQL validation, exploratory analysis, and dashboard visuals, is available at the following link:
+
+Canva Link
+
+Recorded Team Presentation
+
+
+The final group presentation, which includes the complete project workflow, data integration process, SQL validation, exploratory data analysis, dashboard development, and team contributions, is available at the following link:
+Recorded Team Presentation link
+This presentation was delivered collaboratively by all team members as part of the final project evaluation.
+Final Project Report
+
+
+
+
+
+Data Visualization Associate Early Remote Internship
+
+
+Unified Admissions Intelligence: Integrating & Visualizing Saint Louis University Applicant Data Data Visualization Associate Early Remote Internship 
+
+Team:  SLU 0202 DVA Team 6
+Date of submission: 02.03.2026
+
+
+
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Team Members
+
+Proud Ndlovu (Email: fanisaproud@gmail.com)
+MD. Shohbat Ahsan (Email: mdshohbatahsan@gmail.com)
+Shafaq Zaman (Email: shafaqzaman012@gmail.com)
+Epaphras Etabale (Email: etabalee@gmail.com)
+Ritik Kumar (Email: rk2600736@gmail.com)
+Areeba Noor (Email: noorareeba101@gmail.com)
+Jns v k hemanth (Email: jkhemanth21@gmail.com)
+Deborah Ayangha (Email: ayangha.dheebi@gmail.com)
+Odunola Eunice Olatunji (Email: olatunjiodunola20@gmail.com)
+Honey Chauhan (Email: honey29619@gmail.com)
+
+
+2. Introduction
+This final report presents the culmination of our data integration, validation, and visual analytics process. Initially, the core problem statement identified that admissions data was fragmented across four disparate sources, making it difficult to gain a holistic view of the recruitment pipeline. The purpose of this final phase is to present the unified findings derived from the reliable PostgreSQL warehouse and the comprehensive Looker Studio dashboard. This integration successfully tracks the complete student lifecycle—from initial application through outreach, deposit assignment, and immigration compliance—enabling real-time strategic decision-making for Saint Louis University.
+
+3. Project Overview
+
+3.1 Objectives
+The primary objective of this project was to unify fragmented data into a single, reliable source of truth. By doing so, the university can transition from merely relying on descriptive statistics to eventually implementing predictive modeling of student success. 
+3.2 Data Sources & Structural Definitions
+The foundation of this analysis rests on four distinct datasets that were integrated into a master dataset containing over 6,800 application records:
+Applicant Data: The primary source for demographics, including Citizenship, Major, and Intake, as well as initial intent.
+SEVIS Data: The official record for visa status, providing the sevis_id necessary to validate "Admitted" status.
+Connect Data: Internal CRM data used for tracking I-20 progress and initial deposit status.
+Outreach Data: Late-funnel data capturing visa approvals and final enrollment status.
+To maintain strict audit standards, Reference_ID was utilized as the primary key to link Applicant, Connect, and SEVIS data, while SEVIS_ID served as the relational key to link official government visa records to internal outreach efforts.
+
+
+3.3 Data Preparation Summary
+Transforming the raw CSV files into a functional PostgreSQL database required rigorous cleaning. Key steps included resolving critical scientific notation errors and standardizing Unix timestamp integers into readable datetime formats. Furthermore, text-string "NULL" values were systematically converted into true database NULLs to allow for accurate mathematical aggregations. The integration utilized LEFT JOINS, originating from the Applicant table, to ensure absolute preservation of all records.
+SQL queries of the data preparation: SQL Queries for Master Dataset
+Link of the Master Dataset: Master Dataset for Applicants
+
+
+4. Key Exploratory Data Analysis (EDA) & Validated Metrics
+Following the validation methodology established in Week 3, the final dataset confirms the following critical Key Performance Indicators (KPIs):
+Total Volume & Funnel Integrity: SQL validation successfully reconciled the Total Applicants metric at exactly 6,893 records. The pipeline metrics are confirmed accurate, matching the dashboard's display of 2,605 Admitted students and 1,512 Paid Deposits.
+Conversion Rates: The university maintains a healthy admission rate of 37.8%. Furthermore, there is a strong yield rate, with 58% of admitted students successfully paying their deposits, indicating high enrollment intent.
+Program Distribution: Application volume is heavily skewed toward STEM-designated majors (Information Systems, Analytics, and Cybersecurity). However, niche programs demonstrate high efficiency; for example, Public Health (MPH) shows a remarkable 43.0% deposit rate.
+Geographic Concentration: Recruitment is heavily concentrated in specific geographic regions, most notably India, Nigeria, and Ghana.
+Link of SQL queries used for validation: Validation Queries
+
+5. Discrepancies and Anomalies Addressed
+
+A major data quality gap was identified during the Exploratory Data Analysis phase: 99.7% of the Applicant dataset's 'Country' field was missing. To resolve this anomaly and ensure accurate regional targeting, the methodology was immediately shifted to tracking 'Citizenship' via the SEVIS dataset. Additionally, the data dictionary accounted for naming variations in "Majors" and standardized "Intake" terms across systems, ensuring that Looker Studio visuals aggregated properly without fragmentation.
+
+6. Financial Insights Based on Verified Data
+The functional Looker Studio dashboard provides a clear executive overview of the campaign's financial health:
+Revenue Potential: The dashboard reveals a robust potential tuition revenue of $13.4 million.
+Financial Surplus: A highly positive financial surplus of $1,618,594 was identified. This surplus is a critical metric, as it indicates that most admitted students possess funds that exceed the cost of attendance, directly reducing the risk of visa denials based on financial grounds.
+Operational Bottlenecks: Intake data is overwhelmingly concentrated in Fall terms, which creates significant operational peaks and bottlenecks for the admissions team.
+Link of Looker Studio Dashboard:  Comprehensive Dashboard for SLU Applicants
+
+7. Recommendations
+Based on the validated data warehouse and visual analytics, the following strategic recommendations are proposed:
+Geographic Diversification: Expand recruitment efforts to underrepresented regions to reduce geographic dependency on a few key markets.
+Data Governance: Introduce automated data quality checks directly into the ETL pipeline and normalize program and status fields to eliminate inconsistent category values at the source.
+Strategic Shift: Transition the recruitment strategy from purely volume-based approaches to channel-optimized recruitment to maximize yield efficiency.
+8. Conclusion 
+This project successfully transitioned Saint Louis University's admissions data from fragmented CSV files to a unified PostgreSQL database, resulting in a fully validated Looker Studio executive dashboard. The data reveals a healthy admissions funnel driven by high-demand STEM programs and a strong yield rate. However, the strong reliance on a few specific programs and geographic markets poses a dependency risk that requires strategic diversification.
+Finally, working as a team distributed globally taught us how to effectively collaborate across time zones, combine diverse analytical skills, and overcome complex technical difficulties together to deliver a robust business intelligence solution.
